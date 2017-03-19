@@ -48,6 +48,26 @@
                ReferencedContainer = "container:UVI.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "34449AE11E7E42A500E78E15"
+               BuildableName = "UVIRealmTests.xctest"
+               BlueprintName = "UVIRealmTests"
+               ReferencedContainer = "container:UVI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "34449B041E7E444700E78E15"
+               BuildableName = "UVIComponentsTests.xctest"
+               BlueprintName = "UVIComponentsTests"
+               ReferencedContainer = "container:UVI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
