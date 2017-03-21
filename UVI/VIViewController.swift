@@ -14,8 +14,30 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	var mode: Mode = .collapsed
 
 	@IBOutlet var viIconImageView: UIImageView!
+	let touchIndicator = CAShapeLayer()
+	let touchIndicatorAnimation = CABasicAnimation()
 
 	var didTapWhenCollapsed: (() -> Void)?
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		setupUI()
+	}
+
+	private func setupUI() {
+		touchIndicator.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.4).cgColor
+		touchIndicator.path = CGPath(
+			ellipseIn: .init(origin: .zero,
+			                 size: .init(width: 150, height: 150)),
+			transform: nil)
+		touchIndicator.frame.size = .init(width: 150, height: 150)
+		touchIndicatorAnimation.keyPath = "transform.scale"
+		touchIndicatorAnimation.fromValue = 0.05
+		touchIndicatorAnimation.toValue = 1
+		touchIndicatorAnimation.duration = 0.3
+		touchIndicatorAnimation.isRemovedOnCompletion = true
+
+	}
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
@@ -39,8 +61,23 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 				self.view.layoutIfNeeded()
 			})
 		case .expanded:
+			touchIndicator.removeFromSuperlayer()
 			break
 		}
+	}
+
+	@IBAction func didTouchDownButton(_ sender: UIButton, event: UIEvent) {
+		guard let touchPoint = event.touches(for: sender)?.first?.location(in: sender),
+			mode == .expanded else { return }
+		CATransaction.begin()
+		CATransaction.setDisableActions(true)
+
+		touchIndicator.frame.origin = .init(x: touchPoint.x - 75, y: touchPoint.y - 75)
+
+		CATransaction.commit()
+
+		touchIndicator.add(touchIndicatorAnimation, forKey: nil)
+		sender.layer.addSublayer(touchIndicator)
 	}
 
 }
