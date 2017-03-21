@@ -18,8 +18,12 @@
 		34449B0F1E7E444700E78E15 /* UVIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 34449AFF1E7E444700E78E15 /* UVIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34449B121E7E444700E78E15 /* UVIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34449AFD1E7E444600E78E15 /* UVIComponents.framework */; };
 		34449B131E7E444700E78E15 /* UVIComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34449AFD1E7E444600E78E15 /* UVIComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34449B1D1E7E47B800E78E15 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34449B1C1E7E47B800E78E15 /* HomeViewController.swift */; };
+		34449B201E7E492400E78E15 /* StoryboardInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34449B1F1E7E492400E78E15 /* StoryboardInstantiatable.swift */; };
+		34449B221E7F363800E78E15 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34449B211E7F363800E78E15 /* Home.storyboard */; };
+		34449B241E7F408500E78E15 /* VI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34449B231E7F408500E78E15 /* VI.storyboard */; };
+		34449B261E7F40FF00E78E15 /* VIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34449B251E7F40FF00E78E15 /* VIViewController.swift */; };
 		344F08551E71D6BF00011081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F08541E71D6BF00011081 /* AppDelegate.swift */; };
-		344F08571E71D6BF00011081 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F08561E71D6BF00011081 /* ViewController.swift */; };
 		344F085C1E71D6BF00011081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344F085B1E71D6BF00011081 /* Assets.xcassets */; };
 		344F085F1E71D6BF00011081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344F085D1E71D6BF00011081 /* LaunchScreen.storyboard */; };
 		344F086A1E71D6BF00011081 /* UVITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F08691E71D6BF00011081 /* UVITests.swift */; };
@@ -123,9 +127,13 @@
 		34449B051E7E444700E78E15 /* UVIComponentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UVIComponentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34449B0C1E7E444700E78E15 /* UVIComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIComponentsTests.swift; sourceTree = "<group>"; };
 		34449B0E1E7E444700E78E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34449B1C1E7E47B800E78E15 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		34449B1F1E7E492400E78E15 /* StoryboardInstantiatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiatable.swift; sourceTree = "<group>"; };
+		34449B211E7F363800E78E15 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		34449B231E7F408500E78E15 /* VI.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VI.storyboard; sourceTree = "<group>"; };
+		34449B251E7F40FF00E78E15 /* VIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIViewController.swift; sourceTree = "<group>"; };
 		344F08511E71D6BF00011081 /* UVI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UVI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		344F08541E71D6BF00011081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		344F08561E71D6BF00011081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		344F085B1E71D6BF00011081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		344F085E1E71D6BF00011081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		344F08601E71D6BF00011081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -254,6 +262,33 @@
 			path = UVIComponentsTests;
 			sourceTree = "<group>";
 		};
+		34449B1A1E7E470E00E78E15 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				344F085D1E71D6BF00011081 /* LaunchScreen.storyboard */,
+				34449B211E7F363800E78E15 /* Home.storyboard */,
+				34449B231E7F408500E78E15 /* VI.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		34449B1B1E7E473600E78E15 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				34449B1C1E7E47B800E78E15 /* HomeViewController.swift */,
+				34449B251E7F40FF00E78E15 /* VIViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		34449B1E1E7E48D900E78E15 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				34449B1F1E7E492400E78E15 /* StoryboardInstantiatable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		344F08481E71D6BF00011081 = {
 			isa = PBXGroup;
 			children = (
@@ -287,11 +322,12 @@
 		344F08531E71D6BF00011081 /* UVI */ = {
 			isa = PBXGroup;
 			children = (
-				344F08541E71D6BF00011081 /* AppDelegate.swift */,
-				344F08561E71D6BF00011081 /* ViewController.swift */,
-				344F085B1E71D6BF00011081 /* Assets.xcassets */,
-				344F085D1E71D6BF00011081 /* LaunchScreen.storyboard */,
 				344F08601E71D6BF00011081 /* Info.plist */,
+				344F085B1E71D6BF00011081 /* Assets.xcassets */,
+				344F08541E71D6BF00011081 /* AppDelegate.swift */,
+				34449B1E1E7E48D900E78E15 /* Protocols */,
+				34449B1B1E7E473600E78E15 /* ViewControllers */,
+				34449B1A1E7E470E00E78E15 /* Storyboards */,
 			);
 			path = UVI;
 			sourceTree = "<group>";
@@ -627,6 +663,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34449B241E7F408500E78E15 /* VI.storyboard in Resources */,
+				34449B221E7F363800E78E15 /* Home.storyboard in Resources */,
 				344F085F1E71D6BF00011081 /* LaunchScreen.storyboard in Resources */,
 				344F085C1E71D6BF00011081 /* Assets.xcassets in Resources */,
 			);
@@ -984,8 +1022,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				344F08571E71D6BF00011081 /* ViewController.swift in Sources */,
+				34449B201E7E492400E78E15 /* StoryboardInstantiatable.swift in Sources */,
 				344F08551E71D6BF00011081 /* AppDelegate.swift in Sources */,
+				34449B1D1E7E47B800E78E15 /* HomeViewController.swift in Sources */,
+				34449B261E7F40FF00E78E15 /* VIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
