@@ -417,6 +417,7 @@
 				34449AD71E7E42A400E78E15 /* Headers */,
 				34449AD81E7E42A400E78E15 /* Resources */,
 				53C2023B4DAD70E7EB5B9301 /* [CP] Copy Pods Resources */,
+				34E481AD1E81983400341B97 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -570,6 +571,7 @@
 					34449AD91E7E42A400E78E15 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T284UZDTGP;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					34449AE11E7E42A500E78E15 = {
@@ -718,6 +720,19 @@
 			showEnvVarsInLog = 0;
 		};
 		344F08821E71D84500011081 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		34E481AD1E81983400341B97 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1106,6 +1121,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C0DA7C4EC1A93E2414D808C /* Pods-UVIRealm.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1120,6 +1136,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.shaneqi.UVIRealm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1131,6 +1148,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E43B3C1DC213B9F6F72E18A /* Pods-UVIRealm.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1156,7 +1174,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE7DD5AFD81C8BF649C58B6E /* Pods-UVIRealmTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6WD23SDQ5H;
 				INFOPLIST_FILE = UVIRealmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1171,7 +1188,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB5B8B85D0CFB26851893EEE /* Pods-UVIRealmTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6WD23SDQ5H;
 				INFOPLIST_FILE = UVIRealmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

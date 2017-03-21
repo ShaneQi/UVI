@@ -16,7 +16,7 @@ end
 target 'UVIRealm' do
   use_frameworks!
 
-  pod 'Realm'
+  pod 'RealmSwift'
 
   target 'UVIRealmTests' do
     inherit! :search_paths
