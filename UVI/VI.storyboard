@@ -23,6 +23,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eX-1L-ElW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="vi-vibutton"/>
                                 <connections>
                                     <action selector="didTapMainButton:" destination="QLa-7J-oxn" eventType="touchUpInside" id="JCd-nL-bGU"/>
                                     <action selector="didTouchDownButton:event:" destination="QLa-7J-oxn" eventType="touchDown" id="6Sh-b7-NgU"/>

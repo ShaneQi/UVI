@@ -30,9 +30,12 @@ class UVIUITests: XCTestCase {
 		super.tearDown()
 	}
 
-	func testExample() {
-		// Use recording to get started writing UI tests.
-		// Use XCTAssert and related functions to verify your tests produce the correct results.
+	func testViViewControllerTransitionAndTouchingInk() {
+		let viVibuttonButton = XCUIApplication().buttons["vi-vibutton"]
+		viVibuttonButton.tap()
+		viVibuttonButton.press(forDuration: 1)
+		viVibuttonButton.press(forDuration: 1)
+		viVibuttonButton.press(forDuration: 1)
 	}
 
 }
