@@ -28,6 +28,7 @@
 		344F085F1E71D6BF00011081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344F085D1E71D6BF00011081 /* LaunchScreen.storyboard */; };
 		344F086A1E71D6BF00011081 /* UVITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F08691E71D6BF00011081 /* UVITests.swift */; };
 		344F08751E71D6BF00011081 /* UVIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F08741E71D6BF00011081 /* UVIUITests.swift */; };
+		345C5C061E841B49009C555C /* InkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C5C051E841B49009C555C /* InkLayer.swift */; };
 		652EE852FCB44E8F433624F9 /* Pods_UVIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618D4738BD450451649D68B4 /* Pods_UVIComponents.framework */; };
 		9DAED1CF535801A31F9DD53A /* Pods_UVIRealmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4C699C93FB78096EAB759E /* Pods_UVIRealmTests.framework */; };
 		A0960723B7D0A08FE298C6FD /* Pods_UVITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FDBAA65BF0D3F01A520545 /* Pods_UVITests.framework */; };
@@ -143,6 +144,7 @@
 		344F08701E71D6BF00011081 /* UVIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UVIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		344F08741E71D6BF00011081 /* UVIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIUITests.swift; sourceTree = "<group>"; };
 		344F08761E71D6BF00011081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		345C5C051E841B49009C555C /* InkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLayer.swift; sourceTree = "<group>"; };
 		3E43B3C1DC213B9F6F72E18A /* Pods-UVIRealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIRealm.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIRealm/Pods-UVIRealm.release.xcconfig"; sourceTree = "<group>"; };
 		45316E904D842897352AF6F9 /* Pods-UVITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVITests/Pods-UVITests.release.xcconfig"; sourceTree = "<group>"; };
 		4DDDC97EFE7458B80E10022E /* Pods-UVIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIComponents.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIComponents/Pods-UVIComponents.release.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				34449AFF1E7E444700E78E15 /* UVIComponents.h */,
 				34449B001E7E444700E78E15 /* Info.plist */,
+				345C5C051E841B49009C555C /* InkLayer.swift */,
 			);
 			path = UVIComponents;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 					34449AFC1E7E444600E78E15 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T284UZDTGP;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					34449B041E7E444700E78E15 = {
@@ -1022,6 +1026,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345C5C061E841B49009C555C /* InkLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1202,6 +1207,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D1AE1E1CAC981A97CAD4045 /* Pods-UVIComponents.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1216,6 +1222,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.shaneqi.UVIComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1227,6 +1234,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DDDC97EFE7458B80E10022E /* Pods-UVIComponents.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
