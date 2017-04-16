@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		276070B889597B9070E9C41A /* Pods_UVIComponentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4622D062038C7745BE869AD /* Pods_UVIComponentsTests.framework */; };
+		341FC8F11EA3FA59008A9B3C /* UVISounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FC8F01EA3FA59008A9B3C /* UVISounds.swift */; };
 		34449AE31E7E42A500E78E15 /* UVIRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34449ADA1E7E42A400E78E15 /* UVIRealm.framework */; };
 		34449AEA1E7E42A500E78E15 /* UVIRealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34449AE91E7E42A500E78E15 /* UVIRealmTests.swift */; };
 		34449AEC1E7E42A500E78E15 /* UVIRealm.h in Headers */ = {isa = PBXBuildFile; fileRef = 34449ADC1E7E42A400E78E15 /* UVIRealm.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,7 +29,14 @@
 		344F085F1E71D6BF00011081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344F085D1E71D6BF00011081 /* LaunchScreen.storyboard */; };
 		344F086A1E71D6BF00011081 /* UVITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F08691E71D6BF00011081 /* UVITests.swift */; };
 		344F08751E71D6BF00011081 /* UVIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F08741E71D6BF00011081 /* UVIUITests.swift */; };
+		3456ED391EA3F57D00EB6A86 /* UVIRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3456ED381EA3F57D00EB6A86 /* UVIRealm.swift */; };
+		3456ED3A1EA3F59E00EB6A86 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A8E59E1E9FED8100E4C6D7 /* Result.swift */; };
+		3456ED3B1EA3F5CF00EB6A86 /* secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A8E59C1E9FED1600E4C6D7 /* secret.swift */; };
+		3456ED3D1EA3F69300EB6A86 /* UVIRealm+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3456ED3C1EA3F69300EB6A86 /* UVIRealm+API.swift */; };
+		3456ED3F1EA3F7B600EB6A86 /* may_I_have_your_name.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3456ED3E1EA3F7B600EB6A86 /* may_I_have_your_name.mp3 */; };
 		345C5C061E841B49009C555C /* InkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C5C051E841B49009C555C /* InkLayer.swift */; };
+		346950EF1E9DC53500F58379 /* VisuallyImpaired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346950EE1E9DC53500F58379 /* VisuallyImpaired.swift */; };
+		34A8E59B1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */; };
 		652EE852FCB44E8F433624F9 /* Pods_UVIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618D4738BD450451649D68B4 /* Pods_UVIComponents.framework */; };
 		9DAED1CF535801A31F9DD53A /* Pods_UVIRealmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4C699C93FB78096EAB759E /* Pods_UVIRealmTests.framework */; };
 		A0960723B7D0A08FE298C6FD /* Pods_UVITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FDBAA65BF0D3F01A520545 /* Pods_UVITests.framework */; };
@@ -116,6 +124,7 @@
 		2C0DA7C4EC1A93E2414D808C /* Pods-UVIRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UVIRealm/Pods-UVIRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		2C412FDB4EA7A3080B8C6877 /* Pods_UVIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UVIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE83056478B9D05405A1FAE /* Pods-UVIComponentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIComponentsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIComponentsTests/Pods-UVIComponentsTests.release.xcconfig"; sourceTree = "<group>"; };
+		341FC8F01EA3FA59008A9B3C /* UVISounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVISounds.swift; sourceTree = "<group>"; };
 		34449ADA1E7E42A400E78E15 /* UVIRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UVIRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34449ADC1E7E42A400E78E15 /* UVIRealm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UVIRealm.h; sourceTree = "<group>"; };
 		34449ADD1E7E42A400E78E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,7 +153,14 @@
 		344F08701E71D6BF00011081 /* UVIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UVIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		344F08741E71D6BF00011081 /* UVIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIUITests.swift; sourceTree = "<group>"; };
 		344F08761E71D6BF00011081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3456ED381EA3F57D00EB6A86 /* UVIRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVIRealm.swift; sourceTree = "<group>"; };
+		3456ED3C1EA3F69300EB6A86 /* UVIRealm+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UVIRealm+API.swift"; sourceTree = "<group>"; };
+		3456ED3E1EA3F7B600EB6A86 /* may_I_have_your_name.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = may_I_have_your_name.mp3; sourceTree = "<group>"; };
 		345C5C051E841B49009C555C /* InkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkLayer.swift; sourceTree = "<group>"; };
+		346950EE1E9DC53500F58379 /* VisuallyImpaired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisuallyImpaired.swift; sourceTree = "<group>"; };
+		34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVIUserDefaults.swift; sourceTree = "<group>"; };
+		34A8E59C1E9FED1600E4C6D7 /* secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = secret.swift; path = ../UVI/secret.swift; sourceTree = "<group>"; };
+		34A8E59E1E9FED8100E4C6D7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = ../UVI/Result.swift; sourceTree = "<group>"; };
 		3E43B3C1DC213B9F6F72E18A /* Pods-UVIRealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIRealm.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIRealm/Pods-UVIRealm.release.xcconfig"; sourceTree = "<group>"; };
 		45316E904D842897352AF6F9 /* Pods-UVITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVITests/Pods-UVITests.release.xcconfig"; sourceTree = "<group>"; };
 		4DDDC97EFE7458B80E10022E /* Pods-UVIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIComponents.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIComponents/Pods-UVIComponents.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +249,11 @@
 			children = (
 				34449ADC1E7E42A400E78E15 /* UVIRealm.h */,
 				34449ADD1E7E42A400E78E15 /* Info.plist */,
+				3456ED381EA3F57D00EB6A86 /* UVIRealm.swift */,
+				3456ED3C1EA3F69300EB6A86 /* UVIRealm+API.swift */,
+				34A8E59C1E9FED1600E4C6D7 /* secret.swift */,
+				34A8E59E1E9FED8100E4C6D7 /* Result.swift */,
+				346950EE1E9DC53500F58379 /* VisuallyImpaired.swift */,
 			);
 			path = UVIRealm;
 			sourceTree = "<group>";
@@ -328,6 +349,8 @@
 				344F08601E71D6BF00011081 /* Info.plist */,
 				344F085B1E71D6BF00011081 /* Assets.xcassets */,
 				344F08541E71D6BF00011081 /* AppDelegate.swift */,
+				3456ED401EA3F7B900EB6A86 /* Sounds */,
+				34A8E5951E9FE2CF00E4C6D7 /* Services */,
 				34449B1E1E7E48D900E78E15 /* Protocols */,
 				34449B1B1E7E473600E78E15 /* ViewControllers */,
 				34449B1A1E7E470E00E78E15 /* Storyboards */,
@@ -351,6 +374,23 @@
 				344F08761E71D6BF00011081 /* Info.plist */,
 			);
 			path = UVIUITests;
+			sourceTree = "<group>";
+		};
+		3456ED401EA3F7B900EB6A86 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3456ED3E1EA3F7B600EB6A86 /* may_I_have_your_name.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		34A8E5951E9FE2CF00E4C6D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */,
+				341FC8F01EA3FA59008A9B3C /* UVISounds.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		397413F481BCAE09CC6D39FC /* Pods */ = {
@@ -574,7 +614,7 @@
 					34449AD91E7E42A400E78E15 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T284UZDTGP;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					34449AE11E7E42A500E78E15 = {
@@ -673,6 +713,7 @@
 				34449B221E7F363800E78E15 /* Home.storyboard in Resources */,
 				344F085F1E71D6BF00011081 /* LaunchScreen.storyboard in Resources */,
 				344F085C1E71D6BF00011081 /* Assets.xcassets in Resources */,
+				3456ED3F1EA3F7B600EB6A86 /* may_I_have_your_name.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,6 +1052,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3456ED3A1EA3F59E00EB6A86 /* Result.swift in Sources */,
+				3456ED3B1EA3F5CF00EB6A86 /* secret.swift in Sources */,
+				3456ED391EA3F57D00EB6A86 /* UVIRealm.swift in Sources */,
+				346950EF1E9DC53500F58379 /* VisuallyImpaired.swift in Sources */,
+				3456ED3D1EA3F69300EB6A86 /* UVIRealm+API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,6 +1089,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34449B201E7E492400E78E15 /* StoryboardInstantiatable.swift in Sources */,
+				34A8E59B1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift in Sources */,
+				341FC8F11EA3FA59008A9B3C /* UVISounds.swift in Sources */,
 				344F08551E71D6BF00011081 /* AppDelegate.swift in Sources */,
 				34449B1D1E7E47B800E78E15 /* HomeViewController.swift in Sources */,
 				34449B261E7F40FF00E78E15 /* VIViewController.swift in Sources */,
@@ -1179,6 +1227,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE7DD5AFD81C8BF649C58B6E /* Pods-UVIRealmTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6WD23SDQ5H;
 				INFOPLIST_FILE = UVIRealmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1193,6 +1242,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB5B8B85D0CFB26851893EEE /* Pods-UVIRealmTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6WD23SDQ5H;
 				INFOPLIST_FILE = UVIRealmTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1381,10 +1431,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62F8F8F78168D96541F8767B /* Pods-UVI.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T284UZDTGP;
 				INFOPLIST_FILE = UVI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.utdallas.transformers.UVI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1396,10 +1447,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA20616AD4EA232D3FABB31B /* Pods-UVI.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T284UZDTGP;
 				INFOPLIST_FILE = UVI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.utdallas.transformers.UVI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
