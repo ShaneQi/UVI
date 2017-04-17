@@ -10,6 +10,7 @@ import UIKit
 import Speech
 import AVFoundation
 import UVIRealm
+import RxSwift
 
 final class HomeViewController: UIViewController, StoryboardInstantiatable {
 
@@ -53,12 +54,9 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		}
 	}
 
-	let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
-	private var recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-	private var recognitionTask: SFSpeechRecognitionTask?
-	private let audioEngine = AVAudioEngine()
-
-	var avAudioPlayer: AVAudioPlayer!
+	fileprivate let audioEngine = AVAudioEngine()
+	private var avAudioPlayer: AVAudioPlayer!
+	fileprivate var speechBag = DisposeBag()
 
 	private func askForName() {
 		do {
@@ -69,73 +67,19 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		} catch {}
 	}
 
-	fileprivate func listenToName() {
-
-		if recognitionTask != nil {
-			recognitionTask?.cancel()
-			recognitionTask = nil
-		}
-
-		let audioSession = AVAudioSession.sharedInstance()
-		do {
-			try audioSession.setCategory(AVAudioSessionCategoryRecord)
-			try audioSession.setMode(AVAudioSessionModeMeasurement)
-			try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
-		} catch {
-			print("audioSession properties weren't set because of an error.")
-		}
-
-		guard let inputNode = audioEngine.inputNode else {
-			fatalError("Audio engine has no input node")
-		}
-
-		recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [unowned self] result, _ in
-
-			var isFinal = result?.isFinal ?? true
-
-			if let result = result {
-				let transcription = result.bestTranscription
-				let words = transcription.segments.flatMap({ $0.substring })
-				isFinal = self.handleWords(words)
-			}
-
-			if isFinal {
-				self.audioEngine.stop()
-				inputNode.removeTap(onBus: 0)
-
-				self.recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-				self.recognitionTask = nil
-
-			}
-
-		}
-
-		let recordingFormat = inputNode.outputFormat(forBus: 0)
-		inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
-			self.recognitionRequest.append(buffer)
-		}
-
-		audioEngine.prepare()
-
-		do {
-			try audioEngine.start()
-		} catch {
-			print("audioEngine couldn't start because of an error.")
-		}
-
-	}
-
-	private func handleWords(_ words: [String]) -> Bool {
+	fileprivate func handleWords(_ words: [String]) {
 		guard words.count > 0 else {
-			return false
+			return
 		}
-		let userName = words.prefix(2).joined(separator: " ")
+		let uid = UUID().uuidString
+		let userName = words.prefix(2).joined(separator: " ").capitalized
 		let vi = VisuallyImpaired()
-		vi.uid = UUID().uuidString
+		vi.uid = uid
 		vi.name = userName
 		try? UVIRealm.default.new(vi)
 		myself = vi
-		return true
+		UVIUserDefaults.default.userUid = uid
+		speechBag = DisposeBag()
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -150,7 +94,20 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 extension HomeViewController: AVAudioPlayerDelegate {
 
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-		listenToName()
+		let defaultName = ["James", "Bond"]
+		do {
+			try SFSpeechAudioBufferRecognitionRequest().rx.listen(on: audioEngine)
+				.catchErrorJustReturn(defaultName)
+				.buffer(timeSpan: 3, count: 100, scheduler: MainScheduler.instance)
+				.subscribe(onNext: { [weak self] wordsArray in
+					guard let strongSelf = self else { return }
+					if let words = wordsArray.last {
+						strongSelf.handleWords(words)
+					}
+				}).addDisposableTo(speechBag)
+		} catch {
+			handleWords(defaultName)
+		}
 	}
 
 }

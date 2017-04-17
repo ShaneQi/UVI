@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		276070B889597B9070E9C41A /* Pods_UVIComponentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4622D062038C7745BE869AD /* Pods_UVIComponentsTests.framework */; };
 		341FC8F11EA3FA59008A9B3C /* UVISounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FC8F01EA3FA59008A9B3C /* UVISounds.swift */; };
+		341FC8F31EA41DA1008A9B3C /* SFSpeechAudioBufferRecognitionRequest+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FC8F21EA41DA1008A9B3C /* SFSpeechAudioBufferRecognitionRequest+Rx.swift */; };
+		341FC8F61EA41F7E008A9B3C /* String+UVI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FC8F51EA41F7E008A9B3C /* String+UVI.swift */; };
 		34449AE31E7E42A500E78E15 /* UVIRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34449ADA1E7E42A400E78E15 /* UVIRealm.framework */; };
 		34449AEA1E7E42A500E78E15 /* UVIRealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34449AE91E7E42A500E78E15 /* UVIRealmTests.swift */; };
 		34449AEC1E7E42A500E78E15 /* UVIRealm.h in Headers */ = {isa = PBXBuildFile; fileRef = 34449ADC1E7E42A400E78E15 /* UVIRealm.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,6 +127,8 @@
 		2C412FDB4EA7A3080B8C6877 /* Pods_UVIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UVIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DE83056478B9D05405A1FAE /* Pods-UVIComponentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIComponentsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIComponentsTests/Pods-UVIComponentsTests.release.xcconfig"; sourceTree = "<group>"; };
 		341FC8F01EA3FA59008A9B3C /* UVISounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVISounds.swift; sourceTree = "<group>"; };
+		341FC8F21EA41DA1008A9B3C /* SFSpeechAudioBufferRecognitionRequest+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SFSpeechAudioBufferRecognitionRequest+Rx.swift"; sourceTree = "<group>"; };
+		341FC8F51EA41F7E008A9B3C /* String+UVI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+UVI.swift"; sourceTree = "<group>"; };
 		34449ADA1E7E42A400E78E15 /* UVIRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UVIRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34449ADC1E7E42A400E78E15 /* UVIRealm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UVIRealm.h; sourceTree = "<group>"; };
 		34449ADD1E7E42A400E78E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -244,6 +248,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		341FC8F41EA41F6E008A9B3C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				341FC8F51EA41F7E008A9B3C /* String+UVI.swift */,
+				341FC8F21EA41DA1008A9B3C /* SFSpeechAudioBufferRecognitionRequest+Rx.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		34449ADB1E7E42A400E78E15 /* UVIRealm */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +363,7 @@
 				344F085B1E71D6BF00011081 /* Assets.xcassets */,
 				344F08541E71D6BF00011081 /* AppDelegate.swift */,
 				3456ED401EA3F7B900EB6A86 /* Sounds */,
+				341FC8F41EA41F6E008A9B3C /* Extensions */,
 				34A8E5951E9FE2CF00E4C6D7 /* Services */,
 				34449B1E1E7E48D900E78E15 /* Protocols */,
 				34449B1B1E7E473600E78E15 /* ViewControllers */,
@@ -1089,8 +1103,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				34449B201E7E492400E78E15 /* StoryboardInstantiatable.swift in Sources */,
+				341FC8F61EA41F7E008A9B3C /* String+UVI.swift in Sources */,
 				34A8E59B1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift in Sources */,
 				341FC8F11EA3FA59008A9B3C /* UVISounds.swift in Sources */,
+				341FC8F31EA41DA1008A9B3C /* SFSpeechAudioBufferRecognitionRequest+Rx.swift in Sources */,
 				344F08551E71D6BF00011081 /* AppDelegate.swift in Sources */,
 				34449B1D1E7E47B800E78E15 /* HomeViewController.swift in Sources */,
 				34449B261E7F40FF00E78E15 /* VIViewController.swift in Sources */,

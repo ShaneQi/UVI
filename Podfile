@@ -2,6 +2,8 @@ target 'UVI' do
   use_frameworks!
 
   pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'UVITests' do
     inherit! :search_paths

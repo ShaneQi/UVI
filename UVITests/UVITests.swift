@@ -21,9 +21,12 @@ class UVITests: XCTestCase {
 		super.tearDown()
 	}
 
-	func testExample() {
-		// This is an example of a functional test case.
-		// Use XCTAssert and related functions to verify your tests produce the correct results.
+	func testUVIUserDefaults() {
+		let origin = UVIUserDefaults.default.userUid
+		UVIUserDefaults.default.userUid = "hello"
+		XCTAssert(UVIUserDefaults.default.userUid == "hello")
+		UVIUserDefaults.default.userUid = origin
+		XCTAssert(UVIUserDefaults.default.userUid == origin)
 	}
 
 	func testPerformanceExample() {

@@ -20,7 +20,7 @@ class UVIUserDefaults {
 	}
 
 	private func value(forKey key: String) -> Any? {
-		return UserDefaults.standard.value(forKey: #function)
+		return UserDefaults.standard.value(forKey: key)
 	}
 
 	private func setValue(_ value: Any?, forKey key: String) {
