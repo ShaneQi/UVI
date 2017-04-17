@@ -8,6 +8,8 @@
 
 import UIKit
 import UVIComponents
+import RxSwift
+import Speech
 
 final class VIViewController: UIViewController, StoryboardInstantiatable {
 
@@ -19,13 +21,12 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 
 	var didTapWhenCollapsed: (() -> Void)?
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		setupUI()
-	}
+	let bag = DisposeBag()
+	var speechBag = DisposeBag()
+	var audioEngine = AVAudioEngine()
 
-	private func setupUI() {
-	}
+	var input: [String] = []
+	var conversation: [[String]] = []
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
@@ -50,7 +51,10 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 			})
 		case .expanded:
 			touchIndicator.removeFromSuperlayer()
-			break
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
+				self?.speechBag = DisposeBag()
+				self?.handleInput()
+			})
 		}
 	}
 
@@ -60,6 +64,16 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 		touchIndicator.move(to: touchPoint)
 		sender.layer.addSublayer(touchIndicator)
 		touchIndicator.startAnimating()
+		try? SFSpeechAudioBufferRecognitionRequest().rx.listen(on: audioEngine)
+			.subscribe(onNext: { [unowned self] words in
+				self.input = words
+			}).addDisposableTo(speechBag)
+	}
+
+	private func handleInput() {
+		dump(input)
+		conversation.append(input)
+		input = []
 	}
 
 }

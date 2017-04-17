@@ -44,7 +44,6 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	}
 
 	private func requestSpeechAuthorization() {
-
 		SFSpeechRecognizer.requestAuthorization { authStatus in
 			switch authStatus {
 			case .authorized: break
@@ -98,12 +97,10 @@ extension HomeViewController: AVAudioPlayerDelegate {
 		do {
 			try SFSpeechAudioBufferRecognitionRequest().rx.listen(on: audioEngine)
 				.catchErrorJustReturn(defaultName)
-				.buffer(timeSpan: 3, count: 100, scheduler: MainScheduler.instance)
-				.subscribe(onNext: { [weak self] wordsArray in
+				.debounce(0.5, scheduler: MainScheduler.instance)
+				.subscribe(onNext: { [weak self] words in
 					guard let strongSelf = self else { return }
-					if let words = wordsArray.last {
-						strongSelf.handleWords(words)
-					}
+					strongSelf.handleWords(words)
 				}).addDisposableTo(speechBag)
 		} catch {
 			handleWords(defaultName)
