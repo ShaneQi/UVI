@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import UVIComponents
 import RxSwift
 import Speech
+import CoreLocation
+import RealmSwift
 
 final class VIViewController: UIViewController, StoryboardInstantiatable {
 
@@ -29,9 +30,20 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	var input: [String] = []
 	var conversation: [Message] = []
 
+	var locationManager = CLLocationManager()
+	var location = CLLocation(latitude: 0, longitude: 0)
+	var notificationToken: NotificationToken!
+
 	enum Message {
 		case incoming(String)
 		case outgoing(String)
+	}
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		locationManager.delegate = self
+		locationManager.activityType = .automotiveNavigation
+		locationManager.requestWhenInUseAuthorization()
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -78,9 +90,36 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 
 	private func handleInput() {
 		guard input.count > 0 else { return }
-		dump(input)
 		addMessage(.outgoing(input.joined(separator: " ")))
-		addMessage(.incoming("Get it"))
+		if input.last?.lowercased() == "library" {
+			let pickupTask = PickupTask()
+			if let me = myself as? VisuallyImpaired {
+				pickupTask.visuallyImpaired = me
+			}
+			pickupTask.destination = UVIRealm.default.realm.objects(Destination.self).filter("title == %@", "library").first
+			pickupTask.state = 0
+			try? UVIRealm.default.realm.write {
+				 UVIRealm.default.realm.add(pickupTask)
+				}
+			notificationToken = pickupTask.addNotificationBlock({ [unowned self] change in
+				switch change {
+				case .change(let propertyChange):
+					if let newState = propertyChange.filter({ $0.name == "state" }).first?.newValue as? PickupTask.State {
+						switch newState {
+						case .accepted:
+							self.addMessage(.outgoing("Your request was accepted."))
+						default:
+							break
+						}
+					}
+				default:
+					break
+				}
+			})
+			addMessage(.incoming("You request has been submitted."))
+		} else {
+			addMessage(.incoming("Sorry I can't understand that."))
+		}
 		input = []
 	}
 
@@ -118,6 +157,24 @@ extension VIViewController: UITableViewDataSource {
 			cell.mainTextLabel.textAlignment = .right
 		}
 		return cell
+	}
+
+}
+
+extension VIViewController: CLLocationManagerDelegate {
+
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+		switch status {
+		case .authorizedWhenInUse, .authorizedAlways:
+			locationManager.startUpdatingLocation()
+		default:
+			break
+		}
+	}
+
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		guard let location = locations.last else { return }
+		self.location = location
 	}
 
 }

@@ -8,15 +8,15 @@
 
 import RealmSwift
 
-public class UVIRealm {
+class UVIRealm {
 
 	private init() {}
 
-	public static let `default` = UVIRealm()
+	static let `default` = UVIRealm()
 
 	var realm: Realm!
 
-	public func launch(completion: @escaping ((Result<Any?>) -> Void)) {
+	func launch(completion: @escaping ((Result<Any?>) -> Void)) {
 		SyncUser.logIn(with: .usernamePassword(username: UVIRealmUsername,
 		                                       password: UVIRealmPassword),
 		               server: UVIRealmServerUrl,

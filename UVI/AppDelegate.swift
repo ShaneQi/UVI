@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UVIRealm
 
 var myself: Person!
 

@@ -9,7 +9,6 @@
 import UIKit
 import Speech
 import AVFoundation
-import UVIRealm
 import RxSwift
 
 final class HomeViewController: UIViewController, StoryboardInstantiatable {
@@ -24,7 +23,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		setupUI()
 		requestSpeechAuthorization()
 		if let userUid = UVIUserDefaults.default.userUid,
-			let user = UVIRealm.default.visuallyImpaired(fromUid: userUid) {
+			let user = UVIRealm.default.realm.object(ofType: VisuallyImpaired.self, forPrimaryKey: userUid) {
 			myself = user
 			print("logged in")
 		} else {
@@ -77,7 +76,11 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		let vi = VisuallyImpaired()
 		vi.uid = uid
 		vi.name = userName
-		try? UVIRealm.default.new(vi)
+
+		try? UVIRealm.default.realm.write {
+			UVIRealm.default.realm.add(vi)
+		}
+
 		myself = vi
 		UVIUserDefaults.default.userUid = uid
 		speechBag = DisposeBag()

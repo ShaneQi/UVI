@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class InkLayer: CAShapeLayer {
+class InkLayer: CAShapeLayer {
 
 	let animation = CABasicAnimation()
 
-	public override init() {
+	override init() {
 		super.init()
 		setup()
 	}
 
-	required public init?(coder aDecoder: NSCoder) {
+	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		setup()
 	}
@@ -37,14 +37,14 @@ public class InkLayer: CAShapeLayer {
 	}
 
 	///  Implicitly animation disabled.
-	public func move(to point: CGPoint) {
+	func move(to point: CGPoint) {
 		CATransaction.begin()
 		CATransaction.setDisableActions(true)
 		frame.origin = .init(x: point.x - 75, y: point.y - 75)
 		CATransaction.commit()
 	}
 
-	public func startAnimating() {
+	func startAnimating() {
 		add(animation, forKey: nil)
 	}
 
