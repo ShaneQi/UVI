@@ -17,6 +17,7 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	var mode: Mode = .collapsed
 
 	@IBOutlet var viIconImageView: UIImageView!
+	@IBOutlet var conversationTableView: UITableView!
 	let touchIndicator = InkLayer()
 
 	var didTapWhenCollapsed: (() -> Void)?
@@ -26,7 +27,12 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	var audioEngine = AVAudioEngine()
 
 	var input: [String] = []
-	var conversation: [[String]] = []
+	var conversation: [Message] = []
+
+	enum Message {
+		case incoming(String)
+		case outgoing(String)
+	}
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
@@ -51,7 +57,7 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 			})
 		case .expanded:
 			touchIndicator.removeFromSuperlayer()
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
+			DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
 				self?.speechBag = DisposeBag()
 				self?.handleInput()
 			})
@@ -71,9 +77,47 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	}
 
 	private func handleInput() {
+		guard input.count > 0 else { return }
 		dump(input)
-		conversation.append(input)
+		addMessage(.outgoing(input.joined(separator: " ")))
+		addMessage(.incoming("Get it"))
 		input = []
+	}
+
+	private func addMessage(_ message: Message) {
+		conversation.append(message)
+		conversationTableView.insertRows(
+			at: [IndexPath(row: conversation.count - 1, section: 0)],
+			with: .bottom)
+		conversationTableView.scrollToRow(
+			at: IndexPath(row: conversation.count - 1, section: 0),
+			at: .bottom, animated: true)
+	}
+
+}
+
+extension VIViewController: UITableViewDataSource {
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return conversation.count
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let message = conversation[indexPath.row]
+		guard let cell = tableView
+			.dequeueReusableCell(withIdentifier: VIConversationTableViewCell.identifier)
+			as? VIConversationTableViewCell else {
+			fatalError()
+		}
+		switch message {
+		case .incoming(let text):
+			cell.mainTextLabel.text = text
+			cell.mainTextLabel.textAlignment = .left
+		case .outgoing(let text):
+			cell.mainTextLabel.text = text
+			cell.mainTextLabel.textAlignment = .right
+		}
+		return cell
 	}
 
 }

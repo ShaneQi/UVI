@@ -26,8 +26,10 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		if let userUid = UVIUserDefaults.default.userUid,
 			let user = UVIRealm.default.visuallyImpaired(fromUid: userUid) {
 			myself = user
+			print("logged in")
 		} else {
 			askForName()
+			print("asking name")
 		}
 	}
 
