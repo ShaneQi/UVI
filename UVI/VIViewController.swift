@@ -31,7 +31,6 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	var conversation: [Message] = []
 
 	var locationManager = CLLocationManager()
-	var location = CLLocation(latitude: 0, longitude: 0)
 	var notificationToken: NotificationToken!
 
 	enum Message {
@@ -59,7 +58,7 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 		}
 	}
 
-	@IBAction func didTapMainButton(_ sender: UIButton) {
+	@IBAction func didTapMainButton() {
 		switch mode {
 		case .collapsed:
 			UIView.animate(withDuration: 0.5, animations: {
@@ -104,10 +103,17 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 			notificationToken = pickupTask.addNotificationBlock({ [unowned self] change in
 				switch change {
 				case .change(let propertyChange):
-					if let newState = propertyChange.filter({ $0.name == "state" }).first?.newValue as? PickupTask.State {
+					dump(propertyChange.filter({ $0.name == "state" }).first)
+					dump(propertyChange.filter({ $0.name == "state" }).first?.newValue as? PickupTask.State)
+					if let newStateInt = propertyChange.filter({ $0.name == "state" }).first?.newValue as? Int,
+						let newState = PickupTask.State(rawValue: newStateInt) {
 						switch newState {
 						case .accepted:
-							self.addMessage(.outgoing("Your request was accepted."))
+							self.addMessage(.incoming("Your request was accepted."))
+						case .pickedUp:
+							self.addMessage(.incoming("Your driver is picking you up."))
+						case .droppedOff:
+							self.addMessage(.incoming("Your driver is dropping you off."))
 						default:
 							break
 						}
@@ -173,8 +179,12 @@ extension VIViewController: CLLocationManagerDelegate {
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		guard let location = locations.last else { return }
-		self.location = location
+		guard let location = locations.last,
+			myself != nil else { return }
+		try? UVIRealm.default.realm.write {
+			myself.latitude = location.coordinate.latitude
+			myself.longitude = location.coordinate.longitude
+		}
 	}
 
 }

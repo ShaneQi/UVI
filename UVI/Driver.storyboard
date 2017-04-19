@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4zd-n7-5Yb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Driver View Controller-->
+        <scene sceneID="86V-rx-ZLe">
+            <objects>
+                <viewController id="4zd-n7-5Yb" customClass="DriverViewController" customModule="UVI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pMl-qC-0SP"/>
+                        <viewControllerLayoutGuide type="bottom" id="EiK-Iu-sLq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sx7-6H-7ih">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ln0-lD-Uuq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4zd-n7-5Yb" id="iws-JS-16B"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq1-VB-8CX">
+                                <rect key="frame" x="147" y="537" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.71372549019607845" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0hC-gE-00V"/>
+                                    <constraint firstAttribute="width" constant="80" id="jL8-2J-Gto"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="layer.shadowOffset">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapOperateButton" destination="4zd-n7-5Yb" eventType="touchUpInside" id="wu8-98-61Q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eq1-VB-8CX" firstAttribute="centerX" secondItem="Ln0-lD-Uuq" secondAttribute="centerX" id="OIn-CY-ZYQ"/>
+                            <constraint firstItem="Ln0-lD-Uuq" firstAttribute="top" secondItem="Sx7-6H-7ih" secondAttribute="top" id="XPj-cZ-YBh"/>
+                            <constraint firstItem="Ln0-lD-Uuq" firstAttribute="leading" secondItem="Sx7-6H-7ih" secondAttribute="leading" id="eC3-Wf-gQM"/>
+                            <constraint firstAttribute="bottom" secondItem="Ln0-lD-Uuq" secondAttribute="bottom" id="fe2-qq-lU3"/>
+                            <constraint firstAttribute="trailing" secondItem="Ln0-lD-Uuq" secondAttribute="trailing" id="fii-th-ZmQ"/>
+                            <constraint firstItem="EiK-Iu-sLq" firstAttribute="top" secondItem="eq1-VB-8CX" secondAttribute="bottom" constant="50" id="pGz-WF-b6J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ln0-lD-Uuq" id="8Bc-li-Ety"/>
+                        <outlet property="operateButton" destination="eq1-VB-8CX" id="cSz-xK-Wqg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUF-tp-Hl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152.80000000000001" y="-131.78410794602701"/>
+        </scene>
+    </scenes>
+</document>

@@ -26,7 +26,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="vi-vibutton"/>
                                 <connections>
-                                    <action selector="didTapMainButton:" destination="QLa-7J-oxn" eventType="touchUpInside" id="JCd-nL-bGU"/>
+                                    <action selector="didTapMainButton" destination="QLa-7J-oxn" eventType="touchUpInside" id="w4c-8a-fcz"/>
                                     <action selector="didTouchDownButton:event:" destination="QLa-7J-oxn" eventType="touchDown" id="6Sh-b7-NgU"/>
                                 </connections>
                             </button>

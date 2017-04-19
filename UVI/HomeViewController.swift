@@ -18,6 +18,8 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	@IBOutlet var viViewCollapsingConstraint: NSLayoutConstraint!
 	@IBOutlet var viViewHeightExpandingConstraint: NSLayoutConstraint!
 
+	private var name: String?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
@@ -25,7 +27,13 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		if let userUid = UVIUserDefaults.default.userUid,
 			let user = UVIRealm.default.realm.object(ofType: VisuallyImpaired.self, forPrimaryKey: userUid) {
 			myself = user
-			print("logged in")
+			viViewController.didTapMainButton()
+			print("vi logged in")
+		} else if let userUid = UVIUserDefaults.default.userUid,
+			let user = UVIRealm.default.realm.object(ofType: Driver.self, forPrimaryKey: userUid) {
+			myself = user
+			gotoDriverViewController()
+			print("driver logged in")
 		} else {
 			askForName()
 			print("asking name")
@@ -35,13 +43,35 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	private func setupUI() {
 		// Add vi view controller as child view controller.
 		viViewController.didTapWhenCollapsed = { [unowned self] in
-			self.viViewCollapsingConstraint.isActive = false
-			self.viViewHeightExpandingConstraint.isActive = true
-			self.view.layoutIfNeeded()
+			DispatchQueue.main.async(execute: {
+				self.viViewCollapsingConstraint.isActive = false
+				self.viViewHeightExpandingConstraint.isActive = true
+				self.view.layoutIfNeeded()
+			})
+			if myself == nil {
+				guard let name = self.name else {
+					self.askForName()
+					return
+				}
+				let vi = Driver()
+				vi.uid = UUID().uuidString
+				vi.name = name
+				try? UVIRealm.default.realm.write {
+					UVIRealm.default.realm.add(vi)
+				}
+				UVIUserDefaults.default.userUid = vi.uid
+			} else {
+				return
+			}
 		}
 		addChildViewController(viViewController)
 		view.addSubview(viViewController.view)
 		viViewController.didMove(toParentViewController: self)
+	}
+
+	private func gotoDriverViewController() {
+		let driverViewController = DriverViewController.getInstance()
+		show(driverViewController, sender: nil)
 	}
 
 	private func requestSpeechAuthorization() {
@@ -71,18 +101,8 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		guard words.count > 0 else {
 			return
 		}
-		let uid = UUID().uuidString
-		let userName = words.prefix(2).joined(separator: " ").capitalized
-		let vi = VisuallyImpaired()
-		vi.uid = uid
-		vi.name = userName
 
-		try? UVIRealm.default.realm.write {
-			UVIRealm.default.realm.add(vi)
-		}
-
-		myself = vi
-		UVIUserDefaults.default.userUid = uid
+		name = words.prefix(2).joined(separator: " ").capitalized
 		speechBag = DisposeBag()
 	}
 
@@ -92,6 +112,21 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	}
 
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+
+	@IBAction func didTapDriverButton() {
+		guard let name = self.name else {
+			askForName()
+			return
+		}
+		let driver = Driver()
+		driver.uid = UUID().uuidString
+		driver.name = name
+		try? UVIRealm.default.realm.write {
+			UVIRealm.default.realm.add(driver)
+		}
+		UVIUserDefaults.default.userUid = driver.uid
+		gotoDriverViewController()
+	}
 
 }
 

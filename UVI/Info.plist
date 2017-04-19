@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Help users find each other.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Communicate with app.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>

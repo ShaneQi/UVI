@@ -28,6 +28,10 @@ class Driver: Object, Person {
 	dynamic var latitude: Double = 0
 	dynamic var longitude: Double = 0
 
+	override static func primaryKey() -> String? {
+		return "uid"
+	}
+
 }
 
 class PickupTask: Object {
