@@ -24,45 +24,32 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		super.viewDidLoad()
 		setupUI()
 		requestSpeechAuthorization()
-		if let userUid = UVIUserDefaults.default.userUid,
-			let user = UVIRealm.default.realm.object(ofType: VisuallyImpaired.self, forPrimaryKey: userUid) {
-			myself = user
-			viViewController.didTapMainButton()
-			print("vi logged in")
-		} else if let userUid = UVIUserDefaults.default.userUid,
-			let user = UVIRealm.default.realm.object(ofType: Driver.self, forPrimaryKey: userUid) {
-			myself = user
-			gotoDriverViewController()
-			print("driver logged in")
-		} else {
-			askForName()
-			print("asking name")
-		}
+		askForName()
 	}
 
 	private func setupUI() {
 		// Add vi view controller as child view controller.
 		viViewController.didTapWhenCollapsed = { [unowned self] in
-			DispatchQueue.main.async(execute: {
-				self.viViewCollapsingConstraint.isActive = false
-				self.viViewHeightExpandingConstraint.isActive = true
-				self.view.layoutIfNeeded()
-			})
 			if myself == nil {
 				guard let name = self.name else {
-					self.askForName()
 					return
 				}
-				let vi = Driver()
+				let vi = VisuallyImpaired()
 				vi.uid = UUID().uuidString
 				vi.name = name
 				try? UVIRealm.default.realm.write {
 					UVIRealm.default.realm.add(vi)
 				}
+				myself = vi
 				UVIUserDefaults.default.userUid = vi.uid
 			} else {
 				return
 			}
+			DispatchQueue.main.async(execute: {
+				self.viViewCollapsingConstraint.isActive = false
+				self.viViewHeightExpandingConstraint.isActive = true
+				self.view.layoutIfNeeded()
+			})
 		}
 		addChildViewController(viViewController)
 		view.addSubview(viViewController.view)
@@ -124,6 +111,7 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		try? UVIRealm.default.realm.write {
 			UVIRealm.default.realm.add(driver)
 		}
+		myself = driver
 		UVIUserDefaults.default.userUid = driver.uid
 		gotoDriverViewController()
 	}

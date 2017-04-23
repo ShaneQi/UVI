@@ -62,8 +62,9 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 		switch mode {
 		case .collapsed:
 			UIView.animate(withDuration: 0.5, animations: {
-				self.mode = .expanded
 				self.didTapWhenCollapsed?()
+				guard myself != nil else { return }
+				self.mode = .expanded
 				self.view.layoutIfNeeded()
 			})
 		case .expanded:

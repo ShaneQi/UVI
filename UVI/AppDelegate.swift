@@ -22,7 +22,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UVIRealm.default.launch { [weak self] result in
 			switch result {
 			case .success:
-				self?.window?.rootViewController = HomeViewController.getInstance()
+				var viewController: UIViewController
+				if let userUid = UVIUserDefaults.default.userUid,
+					let user = UVIRealm.default.realm.object(ofType: VisuallyImpaired.self, forPrimaryKey: userUid) {
+					myself = user
+					let viViewController = VIViewController.getInstance()
+					viViewController.mode = .expanded
+					viewController = viViewController
+					print("vi logged in")
+				} else if let userUid = UVIUserDefaults.default.userUid,
+					let user = UVIRealm.default.realm.object(ofType: Driver.self, forPrimaryKey: userUid) {
+					myself = user
+					let driverViewController = DriverViewController.getInstance()
+					viewController = driverViewController
+					print("driver logged in")
+				} else {
+					viewController = HomeViewController.getInstance()
+					print("asking name")
+				}
+				self?.window?.rootViewController = viewController
 				self?.window?.makeKeyAndVisible()
 			case .failure(let error):
 				dump(error)

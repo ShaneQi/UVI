@@ -94,6 +94,7 @@ final class DriverViewController: UIViewController, StoryboardInstantiatable {
 			mode.value = .none
 		default: break
 		}
+		annotateTasks()
 	}
 
 	private func annotateTasks() {
@@ -101,7 +102,9 @@ final class DriverViewController: UIViewController, StoryboardInstantiatable {
 		switch mode.value {
 		case .none, .selected:
 			mapView.addAnnotations(pickupTasks
-				.filter({ return $0.visuallyImpaired != nil })
+				.filter({
+					return ($0.visuallyImpaired != nil && $0.state != 3)
+				})
 				.map({ UVIMapAnnotation($0) })
 			)
 		case .accepted(let task), .pickedUp(let task):
