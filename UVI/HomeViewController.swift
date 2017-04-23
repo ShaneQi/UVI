@@ -45,11 +45,9 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 			} else {
 				return
 			}
-			DispatchQueue.main.async(execute: {
-				self.viViewCollapsingConstraint.isActive = false
-				self.viViewHeightExpandingConstraint.isActive = true
-				self.view.layoutIfNeeded()
-			})
+			self.viViewCollapsingConstraint.isActive = false
+			self.viViewHeightExpandingConstraint.isActive = true
+			self.view.layoutIfNeeded()
 		}
 		addChildViewController(viViewController)
 		view.addSubview(viViewController.view)

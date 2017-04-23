@@ -65,6 +65,7 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 				self.didTapWhenCollapsed?()
 				guard myself != nil else { return }
 				self.mode = .expanded
+				self.view.setNeedsLayout()
 				self.view.layoutIfNeeded()
 			})
 		case .expanded:
