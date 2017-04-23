@@ -11,6 +11,7 @@ import RxSwift
 import Speech
 import CoreLocation
 import RealmSwift
+import UserNotifications
 
 final class VIViewController: UIViewController, StoryboardInstantiatable {
 
@@ -40,9 +41,11 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		UNUserNotificationCenter.current().delegate = self
 		locationManager.delegate = self
 		locationManager.activityType = .automotiveNavigation
 		locationManager.requestWhenInUseAuthorization()
+		viIconImageView.isUserInteractionEnabled = (mode == .expanded)
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -65,6 +68,7 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 				self.didTapWhenCollapsed?()
 				guard myself != nil else { return }
 				self.mode = .expanded
+				self.viIconImageView.isUserInteractionEnabled = true
 				self.view.setNeedsLayout()
 				self.view.layoutIfNeeded()
 			})
@@ -87,6 +91,11 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 			.subscribe(onNext: { [unowned self] words in
 				self.input = words
 			}).addDisposableTo(speechBag)
+	}
+
+	@IBAction func didTap5TimesVIIcon() {
+		let remindersViewController = RemindersViewController.getInstance()
+		present(UINavigationController(rootViewController: remindersViewController), animated: true, completion: nil)
 	}
 
 	private func handleInput() {
@@ -131,7 +140,7 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 		input = []
 	}
 
-	private func addMessage(_ message: Message) {
+	fileprivate func addMessage(_ message: Message) {
 		conversation.append(message)
 		conversationTableView.insertRows(
 			at: [IndexPath(row: conversation.count - 1, section: 0)],
@@ -140,6 +149,8 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 			at: IndexPath(row: conversation.count - 1, section: 0),
 			at: .bottom, animated: true)
 	}
+
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 }
 
@@ -187,6 +198,17 @@ extension VIViewController: CLLocationManagerDelegate {
 			myself.latitude = location.coordinate.latitude
 			myself.longitude = location.coordinate.longitude
 		}
+	}
+
+}
+
+extension VIViewController: UNUserNotificationCenterDelegate {
+
+	func userNotificationCenter(
+		_ center: UNUserNotificationCenter,
+		willPresent notification: UNNotification,
+		withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		self.addMessage(.incoming(notification.request.content.body))
 	}
 
 }

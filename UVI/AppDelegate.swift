@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 var myself: Person!
 
@@ -17,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication,
 	                 didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		let options: UNAuthorizationOptions = [.alert, .sound]
+		UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted, _) in
+			if !granted {
+				print("Something went wrong")
+			}
+		}
+
 		window = UIWindow.init(frame: UIScreen.main.bounds)
 
 		UVIRealm.default.launch { [weak self] result in

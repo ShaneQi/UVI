@@ -68,3 +68,17 @@ protocol Person {
 	var longitude: Double { get set }
 
 }
+
+class Reminder: Object {
+
+	dynamic var owner: VisuallyImpaired?
+	dynamic var uid: String = UUID().uuidString
+	dynamic var title: String = ""
+	dynamic var time = NSDate()
+	dynamic var frequency: Int = 1
+
+	override static func primaryKey() -> String? {
+		return "uid"
+	}
+
+}

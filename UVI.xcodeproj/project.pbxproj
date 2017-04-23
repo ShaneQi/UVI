@@ -31,6 +31,9 @@
 		346F1D041EA6612D0091678E /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346F1D031EA6612D0091678E /* DriverViewController.swift */; };
 		346F1D061EA6613A0091678E /* Driver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346F1D051EA6613A0091678E /* Driver.storyboard */; };
 		346F1D081EA669DA0091678E /* VisuallyImpaired+MK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346F1D071EA669DA0091678E /* VisuallyImpaired+MK.swift */; };
+		349935DA1EAD1C7000F8776E /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349935D91EAD1C7000F8776E /* RemindersViewController.swift */; };
+		349935DC1EAD1C7900F8776E /* Reminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349935DB1EAD1C7900F8776E /* Reminders.storyboard */; };
+		349935DE1EAD1EED00F8776E /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349935DD1EAD1EED00F8776E /* RemindersTableViewCell.swift */; };
 		34A8E59B1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */; };
 		34EC1DE71EA5D1D8007EDD1C /* InkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C5C051E841B49009C555C /* InkLayer.swift */; };
 		8016874BFF64A4E20ECE7768 /* Pods_UVITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22673F6A18346B218B2F6DA2 /* Pods_UVITests.framework */; };
@@ -106,6 +109,9 @@
 		346F1D051EA6613A0091678E /* Driver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Driver.storyboard; sourceTree = "<group>"; };
 		346F1D071EA669DA0091678E /* VisuallyImpaired+MK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VisuallyImpaired+MK.swift"; sourceTree = "<group>"; };
 		349435DA6BE08679BE567E97 /* Pods-UVIRealmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIRealmTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIRealmTests/Pods-UVIRealmTests.release.xcconfig"; sourceTree = "<group>"; };
+		349935D91EAD1C7000F8776E /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		349935DB1EAD1C7900F8776E /* Reminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminders.storyboard; sourceTree = "<group>"; };
+		349935DD1EAD1EED00F8776E /* RemindersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewCell.swift; sourceTree = "<group>"; };
 		34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVIUserDefaults.swift; sourceTree = "<group>"; };
 		34A8E59C1E9FED1600E4C6D7 /* secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secret.swift; sourceTree = "<group>"; };
 		34A8E59E1E9FED8100E4C6D7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 			children = (
 				345C5C051E841B49009C555C /* InkLayer.swift */,
 				341FC8F81EA5B1FC008A9B3C /* VIConversationTableViewCell.swift */,
+				349935DD1EAD1EED00F8776E /* RemindersTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 				34449B211E7F363800E78E15 /* Home.storyboard */,
 				34449B231E7F408500E78E15 /* VI.storyboard */,
 				346F1D051EA6613A0091678E /* Driver.storyboard */,
+				349935DB1EAD1C7900F8776E /* Reminders.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				34449B1C1E7E47B800E78E15 /* HomeViewController.swift */,
 				34449B251E7F40FF00E78E15 /* VIViewController.swift */,
 				346F1D031EA6612D0091678E /* DriverViewController.swift */,
+				349935D91EAD1C7000F8776E /* RemindersViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -442,6 +451,7 @@
 				34449B241E7F408500E78E15 /* VI.storyboard in Resources */,
 				34449B221E7F363800E78E15 /* Home.storyboard in Resources */,
 				344F085F1E71D6BF00011081 /* LaunchScreen.storyboard in Resources */,
+				349935DC1EAD1C7900F8776E /* Reminders.storyboard in Resources */,
 				344F085C1E71D6BF00011081 /* Assets.xcassets in Resources */,
 				346F1D061EA6613A0091678E /* Driver.storyboard in Resources */,
 				3456ED3F1EA3F7B600EB6A86 /* may_I_have_your_name.mp3 in Resources */,
@@ -621,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				346F1D041EA6612D0091678E /* DriverViewController.swift in Sources */,
+				349935DE1EAD1EED00F8776E /* RemindersTableViewCell.swift in Sources */,
 				34449B201E7E492400E78E15 /* StoryboardInstantiatable.swift in Sources */,
 				341FC8F61EA41F7E008A9B3C /* String+UVI.swift in Sources */,
 				341FC9071EA5D017008A9B3C /* VisuallyImpaired.swift in Sources */,
@@ -634,6 +645,7 @@
 				346F1D081EA669DA0091678E /* VisuallyImpaired+MK.swift in Sources */,
 				34449B1D1E7E47B800E78E15 /* HomeViewController.swift in Sources */,
 				341FC9051EA5D017008A9B3C /* secret.swift in Sources */,
+				349935DA1EAD1C7000F8776E /* RemindersViewController.swift in Sources */,
 				341FC9031EA5D017008A9B3C /* UVIRealm.swift in Sources */,
 				341FC8F91EA5B1FC008A9B3C /* VIConversationTableViewCell.swift in Sources */,
 				34449B261E7F40FF00E78E15 /* VIViewController.swift in Sources */,
