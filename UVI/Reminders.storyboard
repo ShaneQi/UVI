@@ -34,7 +34,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2m-G9-bMi">
                                                     <rect key="frame" x="0.0" y="0.0" width="10" height="74.5"/>
-                                                    <color key="backgroundColor" red="0.38431372549999998" green="0.71372549019999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.63137254901960782" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="a3i-A9-WUX"/>
                                                     </constraints>
@@ -105,6 +105,9 @@
                                         <point key="value" x="0.0" y="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="clS-UN-0LZ" kind="show" id="jy7-Jg-9hp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -133,6 +136,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCF-Nl-w9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146.40000000000001" y="165.06746626686657"/>
+        </scene>
+        <!--NewReminder-->
+        <scene sceneID="Dhm-18-QXq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewReminder" id="clS-UN-0LZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4De-5j-We3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913" y="165"/>
         </scene>
     </scenes>
 </document>

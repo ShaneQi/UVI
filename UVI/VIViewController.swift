@@ -101,7 +101,9 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	private func handleInput() {
 		guard input.count > 0 else { return }
 		addMessage(.outgoing(input.joined(separator: " ")))
-		if input.last?.lowercased() == "library" {
+		if input.last?.lowercased() == "emergency" {
+			addMessage(.incoming("Your emergency signal has been sent out."))
+		} else if input.last?.lowercased() == "library" {
 			let pickupTask = PickupTask()
 			if let me = myself as? VisuallyImpaired {
 				pickupTask.visuallyImpaired = me

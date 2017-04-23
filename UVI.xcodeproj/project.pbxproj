@@ -36,6 +36,8 @@
 		349935DE1EAD1EED00F8776E /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349935DD1EAD1EED00F8776E /* RemindersTableViewCell.swift */; };
 		34A8E59B1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */; };
 		34EC1DE71EA5D1D8007EDD1C /* InkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C5C051E841B49009C555C /* InkLayer.swift */; };
+		34FC3DE41EAD528400F408BC /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC3DE31EAD528400F408BC /* NewReminderViewController.swift */; };
+		34FC3DE61EAD5A2F00F408BC /* NewReminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FC3DE51EAD5A2F00F408BC /* NewReminder.storyboard */; };
 		8016874BFF64A4E20ECE7768 /* Pods_UVITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22673F6A18346B218B2F6DA2 /* Pods_UVITests.framework */; };
 		E3A8E4E95FE4AF73747DFD2F /* Pods_UVIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0922EE463234086255386F7D /* Pods_UVIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -115,6 +117,8 @@
 		34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVIUserDefaults.swift; sourceTree = "<group>"; };
 		34A8E59C1E9FED1600E4C6D7 /* secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secret.swift; sourceTree = "<group>"; };
 		34A8E59E1E9FED8100E4C6D7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		34FC3DE31EAD528400F408BC /* NewReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
+		34FC3DE51EAD5A2F00F408BC /* NewReminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewReminder.storyboard; sourceTree = "<group>"; };
 		42720A276EDA9B2B138B5227 /* Pods_UVIRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UVIRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78495B8B39CEFF38FB351DE0 /* Pods-UVIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UVIUITests/Pods-UVIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		79D8AE0E081CB72AC6CAE9B3 /* Pods-UVIRealmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UVIRealmTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UVIRealmTests/Pods-UVIRealmTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				34449B231E7F408500E78E15 /* VI.storyboard */,
 				346F1D051EA6613A0091678E /* Driver.storyboard */,
 				349935DB1EAD1C7900F8776E /* Reminders.storyboard */,
+				34FC3DE51EAD5A2F00F408BC /* NewReminder.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				34449B251E7F40FF00E78E15 /* VIViewController.swift */,
 				346F1D031EA6612D0091678E /* DriverViewController.swift */,
 				349935D91EAD1C7000F8776E /* RemindersViewController.swift */,
+				34FC3DE31EAD528400F408BC /* NewReminderViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				344F085F1E71D6BF00011081 /* LaunchScreen.storyboard in Resources */,
 				349935DC1EAD1C7900F8776E /* Reminders.storyboard in Resources */,
 				344F085C1E71D6BF00011081 /* Assets.xcassets in Resources */,
+				34FC3DE61EAD5A2F00F408BC /* NewReminder.storyboard in Resources */,
 				346F1D061EA6613A0091678E /* Driver.storyboard in Resources */,
 				3456ED3F1EA3F7B600EB6A86 /* may_I_have_your_name.mp3 in Resources */,
 			);
@@ -647,6 +654,7 @@
 				341FC9051EA5D017008A9B3C /* secret.swift in Sources */,
 				349935DA1EAD1C7000F8776E /* RemindersViewController.swift in Sources */,
 				341FC9031EA5D017008A9B3C /* UVIRealm.swift in Sources */,
+				34FC3DE41EAD528400F408BC /* NewReminderViewController.swift in Sources */,
 				341FC8F91EA5B1FC008A9B3C /* VIConversationTableViewCell.swift in Sources */,
 				34449B261E7F40FF00E78E15 /* VIViewController.swift in Sources */,
 			);
