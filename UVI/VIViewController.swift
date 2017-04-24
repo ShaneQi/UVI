@@ -116,8 +116,6 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 			notificationToken = pickupTask.addNotificationBlock({ [unowned self] change in
 				switch change {
 				case .change(let propertyChange):
-					dump(propertyChange.filter({ $0.name == "state" }).first)
-					dump(propertyChange.filter({ $0.name == "state" }).first?.newValue as? PickupTask.State)
 					if let newStateInt = propertyChange.filter({ $0.name == "state" }).first?.newValue as? Int,
 						let newState = PickupTask.State(rawValue: newStateInt) {
 						switch newState {
