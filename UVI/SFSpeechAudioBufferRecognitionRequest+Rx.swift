@@ -14,6 +14,7 @@ extension Reactive where Base: SFSpeechAudioBufferRecognitionRequest {
 	func listen(on audioEngine: AVAudioEngine) throws -> Observable<[String]> {
 
 //		let audioSession = AVAudioSession.sharedInstance()
+//		try? audioSession.overrideOutputAudioPort(.speaker)
 //		try audioSession.setCategory(AVAudioSessionCategoryRecord)
 //		try audioSession.setMode(AVAudioSessionModeMeasurement)
 //		try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
@@ -24,7 +25,7 @@ extension Reactive where Base: SFSpeechAudioBufferRecognitionRequest {
 
 		return Observable.create { observer in
 
-			var recognitionTask: SFSpeechRecognitionTask! = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
+			let recognitionTask = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
 				.recognitionTask(with: self.base) { [unowned audioEngine] result, _ in
 
 				if let result = result {
@@ -56,7 +57,6 @@ extension Reactive where Base: SFSpeechAudioBufferRecognitionRequest {
 
 			return Disposables.create {
 				recognitionTask.cancel()
-				recognitionTask = nil
 			}
 		}
 	}

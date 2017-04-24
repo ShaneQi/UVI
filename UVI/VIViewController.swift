@@ -145,13 +145,10 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	fileprivate func addMessage(_ message: Message) {
 		switch message {
 		case .incoming(let text):
+			let audioSession = AVAudioSession.sharedInstance()
+			try? audioSession.overrideOutputAudioPort(.speaker)
 			let speechSynthesizer = AVSpeechSynthesizer()
 			speechSynthesizer.speak(.init(string: text))
-//			data(of: text) {
-//				self.avAudioPlayer = try? AVAudioPlayer.init(data: $0)
-//				self.avAudioPlayer.prepareToPlay()
-//				self.avAudioPlayer.play()
-//			}
 		default:
 			break
 		}
