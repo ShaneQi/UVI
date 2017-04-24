@@ -74,12 +74,20 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	fileprivate var speechBag = DisposeBag()
 
 	private func askForName() {
-		do {
-			avAudioPlayer = try AVAudioPlayer.init(contentsOf: UVISounds.default.mayIHaveYourName)
-			avAudioPlayer.prepareToPlay()
-			avAudioPlayer.play()
-			avAudioPlayer.delegate = self
-		} catch {}
+		data(of: "May I have your name?") { data in
+			DispatchQueue.main.async(execute: {
+				self.avAudioPlayer = try? AVAudioPlayer.init(data: data)
+				self.avAudioPlayer?.prepareToPlay()
+				self.avAudioPlayer?.play()
+				self.avAudioPlayer?.delegate = self
+			})
+		}
+//		do {
+//			avAudioPlayer = try AVAudioPlayer.init(contentsOf: UVISounds.default.mayIHaveYourName)
+//			avAudioPlayer.prepareToPlay()
+//			avAudioPlayer.play()
+//			avAudioPlayer.delegate = self
+//		} catch {}
 	}
 
 	fileprivate func handleWords(_ words: [String]) {

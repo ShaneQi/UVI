@@ -5,6 +5,7 @@ target 'UVI' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RealmSwift'
+  pod 'Alamofire'
 
   target 'UVITests' do
     inherit! :search_paths

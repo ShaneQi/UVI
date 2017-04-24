@@ -22,6 +22,8 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	@IBOutlet var conversationTableView: UITableView!
 	let touchIndicator = InkLayer()
 
+	private var avAudioPlayer: AVAudioPlayer!
+
 	var didTapWhenCollapsed: (() -> Void)?
 
 	let bag = DisposeBag()
@@ -141,6 +143,18 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 	}
 
 	fileprivate func addMessage(_ message: Message) {
+		switch message {
+		case .incoming(let text):
+			let speechSynthesizer = AVSpeechSynthesizer()
+			speechSynthesizer.speak(.init(string: text))
+//			data(of: text) {
+//				self.avAudioPlayer = try? AVAudioPlayer.init(data: $0)
+//				self.avAudioPlayer.prepareToPlay()
+//				self.avAudioPlayer.play()
+//			}
+		default:
+			break
+		}
 		conversation.append(message)
 		conversationTableView.insertRows(
 			at: [IndexPath(row: conversation.count - 1, section: 0)],
