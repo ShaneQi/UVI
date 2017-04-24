@@ -12,6 +12,7 @@ import Speech
 import CoreLocation
 import RealmSwift
 import UserNotifications
+import ApiAI
 
 final class VIViewController: UIViewController, StoryboardInstantiatable {
 
@@ -137,7 +138,23 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 			})
 			addMessage(.incoming("You request has been submitted."))
 		} else {
-			addMessage(.incoming("Sorry I can't understand that."))
+			let request = apiAi.textRequest()
+			request?.query = input.joined(separator: " ")
+			request?.setCompletionBlockSuccess({ _, response in
+				if let responseDict = (response as? [String: Any]),
+					let resultDict = responseDict["result"] as? [String: Any],
+					let fulfillmentDict = resultDict["fulfillment"] as? [String: Any],
+					let speech = fulfillmentDict["speech"] as? String {
+					self.addMessage(.incoming(speech))
+				} else {
+					self.addMessage(.incoming("Sorry I can't understand that."))
+				}
+			}, failure: { _, error in
+				dump(error)
+				self.addMessage(.incoming("Sorry I can't understand that."))
+			})
+			apiAi.enqueue(request)
+
 		}
 		input = []
 	}
@@ -219,7 +236,7 @@ extension VIViewController: UNUserNotificationCenterDelegate {
 		_ center: UNUserNotificationCenter,
 		willPresent notification: UNNotification,
 		withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-		self.addMessage(.incoming(notification.request.content.body))
+		self.addMessage(.incoming("It's time for " + notification.request.content.body))
 	}
 
 }

@@ -35,6 +35,7 @@
 		349935DC1EAD1C7900F8776E /* Reminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349935DB1EAD1C7900F8776E /* Reminders.storyboard */; };
 		349935DE1EAD1EED00F8776E /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349935DD1EAD1EED00F8776E /* RemindersTableViewCell.swift */; };
 		34A8E59B1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */; };
+		34EACC921EADAB7600B07891 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EACC911EADAB7600B07891 /* Secret.swift */; };
 		34EC1DE71EA5D1D8007EDD1C /* InkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C5C051E841B49009C555C /* InkLayer.swift */; };
 		34FC3DE41EAD528400F408BC /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC3DE31EAD528400F408BC /* NewReminderViewController.swift */; };
 		34FC3DE61EAD5A2F00F408BC /* NewReminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FC3DE51EAD5A2F00F408BC /* NewReminder.storyboard */; };
@@ -117,6 +118,7 @@
 		34A8E59A1E9FE3DD00E4C6D7 /* UVIUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVIUserDefaults.swift; sourceTree = "<group>"; };
 		34A8E59C1E9FED1600E4C6D7 /* secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secret.swift; sourceTree = "<group>"; };
 		34A8E59E1E9FED8100E4C6D7 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		34EACC911EADAB7600B07891 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../Secret.swift; sourceTree = "<group>"; };
 		34FC3DE31EAD528400F408BC /* NewReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
 		34FC3DE51EAD5A2F00F408BC /* NewReminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewReminder.storyboard; sourceTree = "<group>"; };
 		42720A276EDA9B2B138B5227 /* Pods_UVIRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UVIRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,7 @@
 			children = (
 				344F08601E71D6BF00011081 /* Info.plist */,
 				344F085B1E71D6BF00011081 /* Assets.xcassets */,
+				34EACC911EADAB7600B07891 /* Secret.swift */,
 				344F08541E71D6BF00011081 /* AppDelegate.swift */,
 				3456ED401EA3F7B900EB6A86 /* Sounds */,
 				341FC8F41EA41F6E008A9B3C /* Extensions */,
@@ -639,6 +642,7 @@
 			files = (
 				346F1D041EA6612D0091678E /* DriverViewController.swift in Sources */,
 				349935DE1EAD1EED00F8776E /* RemindersTableViewCell.swift in Sources */,
+				34EACC921EADAB7600B07891 /* Secret.swift in Sources */,
 				34449B201E7E492400E78E15 /* StoryboardInstantiatable.swift in Sources */,
 				341FC8F61EA41F7E008A9B3C /* String+UVI.swift in Sources */,
 				341FC9071EA5D017008A9B3C /* VisuallyImpaired.swift in Sources */,

@@ -8,8 +8,10 @@
 
 import UIKit
 import UserNotifications
+import ApiAI
 
 var myself: Person!
+var apiAi: ApiAI!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication,
 	                 didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+		apiAi = ApiAI()
+		let config = AIDefaultConfiguration()
+		config.clientAccessToken = apiAIClientAccessToken
+		apiAi.configuration = config
+
 		let options: UNAuthorizationOptions = [.alert, .sound]
 		UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted, _) in
 			if !granted {
