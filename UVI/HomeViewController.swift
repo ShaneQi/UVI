@@ -30,7 +30,9 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	private func setupUI() {
 		// Add vi view controller as child view controller.
 		viViewController.didTapWhenCollapsed = { [unowned self] in
-			if myself == nil {
+			if myself is Driver {
+				return
+			} else if myself == nil {
 				guard let name = self.name else {
 					return
 				}
@@ -42,8 +44,6 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 				}
 				myself = vi
 				UVIUserDefaults.default.userUid = vi.uid
-			} else {
-				return
 			}
 			self.viViewCollapsingConstraint.isActive = false
 			self.viViewHeightExpandingConstraint.isActive = true
@@ -57,6 +57,11 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	private func gotoDriverViewController() {
 		let driverViewController = DriverViewController.getInstance()
 		show(driverViewController, sender: nil)
+	}
+
+	private func gotoRemindersViewController() {
+		let remindersViewController = RemindersViewController.getInstance()
+		present(UINavigationController(rootViewController: remindersViewController), animated: true, completion: nil)
 	}
 
 	private func requestSpeechAuthorization() {
@@ -99,6 +104,11 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 	@IBAction func didTapDriverButton() {
+		if myself is VisuallyImpaired { return }
+		if myself is Driver {
+			gotoDriverViewController()
+			return
+		}
 		guard let name = self.name else {
 			askForName()
 			return
@@ -112,6 +122,26 @@ final class HomeViewController: UIViewController, StoryboardInstantiatable {
 		myself = driver
 		UVIUserDefaults.default.userUid = driver.uid
 		gotoDriverViewController()
+	}
+
+	@IBAction func didTapAssistantButton() {
+		if myself is Driver { return }
+		if myself is VisuallyImpaired {
+			gotoDriverViewController()
+			return
+		}
+		guard let name = self.name else {
+			return
+		}
+		let vi = VisuallyImpaired()
+		vi.uid = UUID().uuidString
+		vi.name = name
+		try? UVIRealm.default.realm.write {
+			UVIRealm.default.realm.add(vi)
+		}
+		myself = vi
+		UVIUserDefaults.default.userUid = vi.uid
+		gotoRemindersViewController()
 	}
 
 }

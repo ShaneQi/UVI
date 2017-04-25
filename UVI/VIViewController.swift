@@ -136,7 +136,7 @@ final class VIViewController: UIViewController, StoryboardInstantiatable {
 					break
 				}
 			})
-			addMessage(.incoming("You request has been submitted."))
+			addMessage(.incoming("Your request has been submitted."))
 		} else {
 			let request = apiAi.textRequest()
 			request?.query = input.joined(separator: " ")
