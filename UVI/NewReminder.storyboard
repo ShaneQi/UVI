@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="STk-BS-umZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Reminder View Controller-->
+        <scene sceneID="w2j-zh-gnR">
+            <objects>
+                <viewController id="STk-BS-umZ" customClass="NewReminderViewController" customModule="UVI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z1z-tN-sUs"/>
+                        <viewControllerLayoutGuide type="bottom" id="eM4-vX-nDE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kqt-Al-Jq3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reminder Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJ2-GJ-dGS">
+                                <rect key="frame" x="15" y="79" width="345" height="29"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="7" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-87-hUA">
+                                <rect key="frame" x="162.5" y="123" width="50" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="pCF-Ef-khF"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2m-2l-69u">
+                                <rect key="frame" x="114.5" y="123" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95K-Te-hRG">
+                                <rect key="frame" x="217.5" y="124" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cb8-Ow-k8g">
+                                <rect key="frame" x="31" y="391" width="313" height="50"/>
+                                <color key="backgroundColor" red="0.41176470590000003" green="0.74509803919999995" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dwn-Le-f8t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="4"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapSaveButton" destination="STk-BS-umZ" eventType="touchUpInside" id="Sq8-xX-EnL"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="8tY-g8-rkf">
+                                <rect key="frame" x="0.0" y="160" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="514674698.98320198">
+                                    <!--2017-04-23 21:11:38 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cb8-Ow-k8g" firstAttribute="leading" secondItem="kqt-Al-Jq3" secondAttribute="leadingMargin" constant="15" id="0P0-BM-fXc"/>
+                            <constraint firstItem="RxS-87-hUA" firstAttribute="top" secondItem="dJ2-GJ-dGS" secondAttribute="bottom" constant="15" id="4gZ-L9-RD6"/>
+                            <constraint firstItem="o2m-2l-69u" firstAttribute="centerY" secondItem="RxS-87-hUA" secondAttribute="centerY" id="Ik8-lu-oOp"/>
+                            <constraint firstItem="8tY-g8-rkf" firstAttribute="top" secondItem="RxS-87-hUA" secondAttribute="bottom" constant="15" id="NeG-A0-3do"/>
+                            <constraint firstItem="95K-Te-hRG" firstAttribute="leading" secondItem="RxS-87-hUA" secondAttribute="trailing" constant="5" id="QnG-Lg-gTC"/>
+                            <constraint firstAttribute="trailing" secondItem="dJ2-GJ-dGS" secondAttribute="trailing" constant="15" id="RNo-va-5ZU"/>
+                            <constraint firstItem="8tY-g8-rkf" firstAttribute="leading" secondItem="kqt-Al-Jq3" secondAttribute="leading" id="WAc-Fo-ZBN"/>
+                            <constraint firstItem="95K-Te-hRG" firstAttribute="centerY" secondItem="RxS-87-hUA" secondAttribute="centerY" id="cOO-eM-rmD"/>
+                            <constraint firstAttribute="trailing" secondItem="8tY-g8-rkf" secondAttribute="trailing" id="emZ-vd-PO9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cb8-Ow-k8g" secondAttribute="trailing" constant="15" id="hdY-o8-f2W"/>
+                            <constraint firstItem="cb8-Ow-k8g" firstAttribute="top" secondItem="8tY-g8-rkf" secondAttribute="bottom" constant="15" id="j1l-54-39P"/>
+                            <constraint firstItem="RxS-87-hUA" firstAttribute="centerX" secondItem="kqt-Al-Jq3" secondAttribute="centerX" id="jv9-T0-Otz"/>
+                            <constraint firstItem="dJ2-GJ-dGS" firstAttribute="top" secondItem="Z1z-tN-sUs" secondAttribute="bottom" constant="15" id="o7U-rh-3fA"/>
+                            <constraint firstItem="dJ2-GJ-dGS" firstAttribute="leading" secondItem="kqt-Al-Jq3" secondAttribute="leading" constant="15" id="pXq-Hb-r4F"/>
+                            <constraint firstItem="RxS-87-hUA" firstAttribute="leading" secondItem="o2m-2l-69u" secondAttribute="trailing" constant="5" id="sbZ-ue-eQd"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ICq-t3-pSU" appends="YES" id="WiG-P6-AyC"/>
+                        </connections>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="datePicker" destination="8tY-g8-rkf" id="hnK-kK-43h"/>
+                        <outlet property="frequencyTextField" destination="RxS-87-hUA" id="hgj-3U-dil"/>
+                        <outlet property="titleTextField" destination="dJ2-GJ-dGS" id="X1X-No-WEu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyW-uL-E5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ICq-t3-pSU">
+                    <connections>
+                        <action selector="dismissKeyboard" destination="STk-BS-umZ" id="8dU-gM-unY"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="913" y="165"/>
+        </scene>
+    </scenes>
+</document>
